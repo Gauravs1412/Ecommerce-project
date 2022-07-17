@@ -1,0 +1,268 @@
+body {
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#Ecommerce {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 30px;
+    background:#777;
+    color: white;
+}
+
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    
+
+}
+
+.topnav a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav button {
+    float: right;
+    margin: 10px;
+    padding: 5px;
+    border: pink;
+}
+
+
+header h1 {
+    padding: 10px;
+    font-size: 80px;
+    margin: 20px;
+
+}
+
+h1 {
+    display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: .67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0;
+    padding: 20px 30px;
+}
+
+
+section h2 {
+    font-family: 'metal mania';
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+}
+
+h2 {
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+#music-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+#music-content div {
+    margin: 30px;
+
+}
+
+
+#music-content div h3 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+.image-container div{
+    margin: 30px;
+
+}
+
+.image-container {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+}
+
+
+.prod-images {
+    transform-origin: center centre;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    filter: brightness(100%);
+
+}
+
+#music-content .prod-details {
+    display: flex;
+    margin: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#music-content .shop-item-button {
+    cursor: pointer;
+    padding: 8px;
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4%;
+    background: #56CCF2;
+}
+
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+   
+    text-rendering: auto;
+    
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+
+#merch-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#merch-content div {
+    margin: 30px;
+}
+
+#merch-content div h3 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#merch-content .prod-details {
+    display: flex;
+    margin: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#merch-content .shop-item-button {
+    cursor: pointer;
+    padding: 8px;
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4%;
+    background: #56CCF2;
+}
+
+footer {
+    display: flex;
+    margin-top: 40px;
+    padding: 20px;
+    background: #56CCF2;
+}
+
+footer .footer-title {
+    text-align: center;
+    color: white;
+    width: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+footer .footer-icons {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-icons ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.footer-icons li {
+    padding: 10px;
+    margin: 0px 20px;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+.footer-icons img {
+    width: 30px;
+}
+
