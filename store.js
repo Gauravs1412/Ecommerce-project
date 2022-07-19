@@ -58,20 +58,55 @@ function addItemToCart(title,price,imageSrc){
     // cartRow.innerText = title
     
     var cartItems = document.getElementsByClassName('cart-items')[0];
-    var cartRowContent = `            <div id="${title}">
+    var cartRowContent = `            
     <h3 class="shop-item-title">${title}</h3>
-    <div class="image-container">
+     <div class="image-container">
         <img class="prod-images" src="${imageSrc}" width='100' height='100' alt="IMAGE">
-    </div>
-    <div class="prod-details">
+     </div>
+    <span class="prod-details">
         
             
-            <span class="shop-item-price">${price}</span>
+        <span class="shop-item-price">${price}</span>
         
         
-    </div>
-    </div>`
+    </span>
+    `
     // console.log(cartItems)
     cartRow.innerHTML = cartRowContent
     cartItems.append(cartRow);
 }
+
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+
+    axios.get('http://localhost:1999/products')
+      .then((data) => {
+        // console.log(data);
+        if(data.request.status === 200){
+            const products = data.data.products
+
+            const parentSection = document.getElementById('products');
+
+            products.forEach(product=> {
+                const productHTML = `
+                <div>
+                   <h1>${product.title}</h1>
+                   <img src=${product.imageUrl}></img>
+                   <button>ADD TO CART</button>
+
+
+
+                <div>
+            
+                `
+                parentSection.innerHTML += productHTML; 
+
+                
+            })
+        }
+      })
+
+
+})
