@@ -94,7 +94,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 <div>
                    <h1>${product.title}</h1>
                    <img src=${product.imageUrl}></img>
-                   <button>ADD TO CART</button>
+                   <button onClick = 'addToCarts(${product.id})'>ADD TO CART</button>
 
 
 
@@ -110,3 +110,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 })
+function addToCarts(productId){
+    axios.post('http://localhost:1999/cart',{productId:productId})
+      .then(response =>{
+        if(response.status === 200){
+            console.log(response)
+        }
+      })
+      .catch(err =>{
+        console.log(err);
+      })
+}
+
+
+
+
+
