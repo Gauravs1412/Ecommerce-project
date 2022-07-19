@@ -6,6 +6,17 @@
 
 
 const cart = document.getElementsByClassName('shop-item-button');
+const notification = document.getElementById('for-notif');
+
+const showCart = document.getElementById('cart-holder1');
+const wholeCart = document.getElementById('cart');
+
+showCart.addEventListener('click',() => {
+    wholeCart.classList.toggle('active');
+})
+
+// console.log(showCart)
+
 
 
 // console.log(cart);
@@ -25,13 +36,42 @@ for(var i=0; i<cart.length; i++){
 
         addItemToCart(title,price,imageSrc)
     })
+
+    btn.addEventListener('click', () => {
+        const notif = document.createElement('div');
+        notif.classList.add('toast');
+
+        notif.innerText = 'product is added to the cart'
+        notification.appendChild(notif);
+
+        setTimeout(() => {
+            notif.remove();
+            
+        }, 2000);
+
+
+    })
 }
 
 function addItemToCart(title,price,imageSrc){
     var cartRow = document.createElement('div')
-    cartRow.innerText = title
+    // cartRow.innerText = title
     
     var cartItems = document.getElementsByClassName('cart-items')[0];
+    var cartRowContent = `            <div id="${title}">
+    <h3 class="shop-item-title">${title}</h3>
+    <div class="image-container">
+        <img class="prod-images" src="${imageSrc}" width='100' height='100' alt="IMAGE">
+    </div>
+    <div class="prod-details">
+        
+            
+            <span class="shop-item-price">${price}</span>
+        
+        
+    </div>
+    </div>`
     // console.log(cartItems)
+    cartRow.innerHTML = cartRowContent
     cartItems.append(cartRow);
 }
