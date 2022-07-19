@@ -13,6 +13,8 @@ const wholeCart = document.getElementById('cart');
 
 showCart.addEventListener('click',() => {
     wholeCart.classList.toggle('active');
+    getCartDetails();
+
 })
 
 // console.log(showCart)
@@ -121,6 +123,25 @@ function addToCarts(productId){
         console.log(err);
       })
 }
+
+function getCartDetails(){
+    axios.get('http://localhost:1999/cart')
+      .then(response =>{
+        
+        if(response.status === 200){
+            response.data.products.forEach(product => {
+                const cartContainer = document.getElementById('cart-item')
+                cartContainer.innerHTML += `<li>${product.title} - ${product.cartItem.quantity} - ${product.price}`
+            })
+            document.querySelector('#cart').style="display:block"
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+}
+
+
 
 
 
