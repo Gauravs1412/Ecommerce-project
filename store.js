@@ -82,38 +82,37 @@ function addItemToCart(title,price,imageSrc){
 
 
 window.addEventListener('DOMContentLoaded', () => {
+    // console.log('loaded');
 
-    axios.get('http://localhost:1999/products')
-      .then((data) => {
+    axios.get('http://localhost:9000/products').then((data) => {
         // console.log(data);
-        if(data.request.status === 200){
-            const products = data.data.products
 
-            const parentSection = document.getElementById('products');
-
-            products.forEach(product=> {
-                const productHTML = `
-                <div>
-                   <h1>${product.title}</h1>
-                   <img src=${product.imageUrl}></img>
-                   <button onClick = 'addToCarts(${product.id})'>ADD TO CART</button>
-
-
-
-                <div>
-            
-                `
-                parentSection.innerHTML += productHTML; 
-
-                
+         if(data.request.status === 200){
+            const products = data.data.products;
+            const parentNode = document.getElementById('products');
+            products.forEach(product => {
+                const productHtml = `
+                    <div id="album-${product.id}">
+                        <h3>${product.title}</h3>
+                        <div class="image-container">
+                            <img class="prod-images" src=${product.imageUrl} alt="">
+                        </div>
+                                        <div class="prod-details">
+                            <span>$<span>${product.price}</span></span>
+                            <button onClick='addToCarts(${product.id})'>ADD TO CART</button>
+                        </div>
+                    </div>`
+                parentNode.innerHTML += productHtml
+    
             })
-        }
-      })
-
+         }
+       
+    })
 
 })
+
 function addToCarts(productId){
-    axios.post('http://localhost:1999/cart',{productId:productId})
+    axios.post('http://localhost:9000/cart',{productId:productId})
       .then(response =>{
         if(response.status === 200){
             console.log(response)
@@ -125,7 +124,7 @@ function addToCarts(productId){
 }
 
 function getCartDetails(){
-    axios.get('http://localhost:1999/cart')
+    axios.get('http://localhost:9000/cart')
       .then(response =>{
         
         if(response.status === 200){
@@ -142,6 +141,33 @@ function getCartDetails(){
 }
 
 
+const order = document.getElementById('order');
+
+order.addEventListener('click' ,() =>{
+    axios.post('http://localhost:9000/create-order',{})
+      .then(response =>{
+        console.log(response)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+    showMessage()
+})
+
+function showMessage(){
+
+    const notif = document.createElement('div');
+        notif.classList.add('toast');
+
+        notif.innerText = 'Your order has been sucessfully placed'
+        notification.appendChild(notif);
+
+        setTimeout(() => {
+            notif.remove();
+            
+        }, 2000);
+}
 
 
 
